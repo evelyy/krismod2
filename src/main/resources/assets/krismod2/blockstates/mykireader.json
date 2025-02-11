@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "facing=north": {"y": 0, "model": ""}
+}
+}
