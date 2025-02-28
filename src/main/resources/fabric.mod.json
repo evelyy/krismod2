@@ -1,25 +1,40 @@
 {
-  "schemaVersion": 1,
-  "id": "krismod2",
-  "version": "${version}",
-  "name": "krismod2",
-  "description": "",
-  "authors": [],
-  "contact": {},
-  "license": "All-Rights-Reserved",
-  "icon": "assets/krismod2/icon.png",
-  "environment": "*",
-  "entrypoints": {
-    "client": [
-      "krismod.krismod2.client.Krismod2Client"
-    ],
-    "main": [
-      "krismod.krismod2.Krismod2"
-    ]
-  },
-  "depends": {
-    "fabricloader": ">=${loader_version}",
-    "fabric": "*",
-    "minecraft": "${minecraft_version}"
-  }
+	"schemaVersion": 1,
+	"id": "krismod2",
+	"version": "${version}",
+	"name": "krismod2",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/krismod2/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"krismod.krismod2.Krismod2"
+		],
+		"client": [
+			"krismod.krismod2.Krismod2Client"
+		],
+		"fabric-datagen": [
+			"krismod.krismod2.Krismod2DataGenerator"
+		]
+	},
+	"mixins": [
+		"krismod2.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.10",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
 }
