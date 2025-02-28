@@ -10,10 +10,10 @@ import software.bernie.geckolib.core.animation.AnimatableManager;
 import software.bernie.geckolib.core.animation.AnimationController;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
-public class MykiReaderBlockEntity extends BlockEntity implements GeoBlockEntity {
+public class TestBlockEntity extends BlockEntity implements GeoBlockEntity {
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 
-    public MykiReaderBlockEntity(BlockPos pos, BlockState state) { super(BlockEntityRegistry.MYKI_READER, pos, state); }
+    public TestBlockEntity(BlockPos pos, BlockState state) { super(BlockEntityRegistry.TEST_BLOCK, pos, state); }
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {

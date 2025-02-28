@@ -5,7 +5,6 @@ import krismod.krismod2.block.entity.MykiReaderBlockEntity;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.util.Identifier;
 import software.bernie.geckolib.model.DefaultedBlockGeoModel;
-import software.bernie.geckolib.model.GeoModel;
 
 public class MykiReaderModel extends DefaultedBlockGeoModel<MykiReaderBlockEntity> {
     private final Identifier model = buildFormattedModelPath(new Identifier(Krismod2.MOD_ID, "mykireader"));

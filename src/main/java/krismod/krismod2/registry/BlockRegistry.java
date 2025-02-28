@@ -9,6 +9,8 @@ import net.minecraft.util.Identifier;
 
 public class BlockRegistry {
     public static final MykiReaderBlock MYKI_READER = registerBlock("mykireader", new MykiReaderBlock());
+    public static final OldShelfBlock OLD_SHELF = registerBlock("oldshelf", new OldShelfBlock());
+    public static final TestBlock TEST_BLOCK = registerBlock("testblock", new TestBlock());
 
     public static <B extends Block> B registerBlock(String name, B block) {
         return Registry.register(Registries.BLOCK, new Identifier(Krismod2.MOD_ID, name), block);
