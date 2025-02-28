@@ -5,19 +5,34 @@ import krismod.krismod2.registry.BlockEntityRegistry;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
+import net.minecraft.state.property.BooleanProperty;
+import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
 
 public class MykiReaderBlock extends FacingBlock implements BlockEntityProvider {
-    public MykiReaderBlock() { super(AbstractBlock.Settings.create().nonOpaque()); }
+    public static final BooleanProperty OPEN = Properties.OPEN;
+    public MykiReaderBlock() {
+        super(AbstractBlock.Settings.create().nonOpaque());
+        setDefaultState(getDefaultState().with(OPEN, false));
+    }
 
     @Nullable
     @Override
@@ -28,7 +43,7 @@ public class MykiReaderBlock extends FacingBlock implements BlockEntityProvider 
     @Override
     public BlockRenderType getRenderType(BlockState state) { return BlockRenderType.ENTITYBLOCK_ANIMATED; }
 
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) { builder.add(FACING); }
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) { builder.add(FACING, OPEN); }
 
     @Nullable
     @Override
@@ -42,4 +57,20 @@ public class MykiReaderBlock extends FacingBlock implements BlockEntityProvider 
 
         super.appendTooltip(stack, blockGetter, tooltip, tooltopFlag);
     }
+
+    @Override
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        if (!state.get(Properties.OPEN)) {
+            world.playSound(player, pos, SoundEvents.BLOCK_ANVIL_BREAK , SoundCategory.BLOCKS, 1.0f, 1.0f);
+            world.setBlockState(pos, state.with(OPEN, true));
+            world.scheduleBlockTick(pos, this, 60);
+        }
+        return ActionResult.SUCCESS;
+    }
+
+    @Override
+    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+        world.setBlockState(pos, state.with(OPEN, false));
+    }
+
 }
