@@ -8,7 +8,7 @@ import software.bernie.geckolib.model.DefaultedBlockGeoModel;
 
 public class MykiReaderBlockModel extends DefaultedBlockGeoModel {
     private final Identifier MYKI_READER_MODEL = new Identifier(Krismod2.MOD_ID, "geo/block/myki_reader.geo.json");
-    private final Identifier MYKI_READER_TEXTURE = new Identifier(Krismod2.MOD_ID, "texture/block/myki_reader.png");
+    private final Identifier MYKI_READER_TEXTURE = new Identifier(Krismod2.MOD_ID, "textures/block/myki_reader.png");
     private final Identifier MYKI_READER_ANIMATION = new Identifier(Krismod2.MOD_ID, "animations/block/myki_reader.animation.json");
 
     public MykiReaderBlockModel() {

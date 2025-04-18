@@ -13,7 +13,7 @@ public class MykiReaderItemModel extends GeoModel<MykiReaderItem> {
 
     @Override
     public Identifier getTextureResource(MykiReaderItem animatable) {
-        return new Identifier(Krismod2.MOD_ID, "texture/block/myki_reader.png");
+        return new Identifier(Krismod2.MOD_ID, "textures/block/myki_reader.png");
     }
 
     @Override

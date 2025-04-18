@@ -10,7 +10,6 @@ import net.minecraft.util.Identifier;
 public class BlockRegistry {
     public static final MykiReaderBlock MYKI_READER = registerBlock("mykireader", new MykiReaderBlock());
     public static final OldShelfBlock OLD_SHELF = registerBlock("oldshelf", new OldShelfBlock());
-    public static final TestBlock TEST_BLOCK = registerBlock("testblock", new TestBlock());
     public static final CurtainsBlock CURTAINS_TEST = registerBlock("curtainstest", new CurtainsBlock());
     public static final VertPlankBlock VERT_WOOD_PLANKS = registerBlock("vert-wood-planks", new VertPlankBlock());
 

@@ -8,12 +8,12 @@ import software.bernie.geckolib.model.GeoModel;
 public class OldShelfItemModel extends GeoModel<OldShelfItem> {
     @Override
     public Identifier getModelResource(OldShelfItem animatable) {
-        return new Identifier(Krismod2.MOD_ID, "geo/block/old_shelf.geo.json");
+        return new Identifier(Krismod2.MOD_ID, "models/item/old_shelf.geo.json");
     }
 
     @Override
     public Identifier getTextureResource(OldShelfItem animatable) {
-        return new Identifier(Krismod2.MOD_ID, "texture/block/old_shelf_brown.png");
+        return new Identifier(Krismod2.MOD_ID, "textures/block/old_shelf_brown.png");
     }
 
     @Override

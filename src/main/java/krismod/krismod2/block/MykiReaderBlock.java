@@ -34,7 +34,7 @@ public class MykiReaderBlock extends FacingBlock implements BlockEntityProvider 
 
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return BlockEntityRegistry.MYKI_READER_BLOCK.instantiate(pos, state);
+        return BlockEntityRegistry.MYKI_READER.instantiate(pos, state);
 
     }
 

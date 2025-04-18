@@ -8,7 +8,7 @@ import software.bernie.geckolib.model.DefaultedBlockGeoModel;
 
 public class OldShelfBlockModel extends DefaultedBlockGeoModel {
     private final Identifier OLD_SHELF_MODEL = new Identifier(Krismod2.MOD_ID, "geo/block/old_shelf.geo.json");
-    private final Identifier OLD_SHELF_TEXTURE = new Identifier(Krismod2.MOD_ID, "texture/block/old_shelf_brown.png");
+    private final Identifier OLD_SHELF_TEXTURE = new Identifier(Krismod2.MOD_ID, "textures/block/old_shelf_brown.png");
 
     public OldShelfBlockModel() {
         super(new Identifier(Krismod2.MOD_ID, "old_shelf"));

@@ -14,10 +14,10 @@ public class VertPlankBlockModel extends DefaultedBlockGeoModel<VertPlankBlockEn
 
     @Override
     public Identifier getModelResource(VertPlankBlockEntity animatable) {
-        return model;
+        return this.model;
     }
     @Override
-    public Identifier getTextureResource(VertPlankBlockEntity animatable) { return texture; }
+    public Identifier getTextureResource(VertPlankBlockEntity animatable) { return this.texture; }
     @Override
     public RenderLayer getRenderType(VertPlankBlockEntity animatable, Identifier texture) {
         return RenderLayer.getEntityTranslucent(getTextureResource(animatable));

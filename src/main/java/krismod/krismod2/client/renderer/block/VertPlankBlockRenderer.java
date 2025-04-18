@@ -1,4 +1,4 @@
-package krismod.krismod2.client.renderer;
+package krismod.krismod2.client.renderer.block;
 
 import krismod.krismod2.block.entity.VertPlankBlockEntity;
 import krismod.krismod2.client.model.block.VertPlankBlockModel;

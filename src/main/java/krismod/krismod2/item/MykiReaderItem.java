@@ -37,7 +37,7 @@ public class MykiReaderItem extends BlockItem implements GeoItem {
     }
 
     @Override
-    public Supplier<Object> getRenderProvider() { return renderProvider; }
+    public Supplier<Object> getRenderProvider() { return this.renderProvider; }
 
 
     @Override

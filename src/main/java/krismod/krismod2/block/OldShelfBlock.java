@@ -22,7 +22,7 @@ public class OldShelfBlock extends FacingBlock implements BlockEntityProvider {
 
     @Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return BlockEntityRegistry.OLD_SHELF_BLOCK.instantiate(pos, state);
+        return BlockEntityRegistry.OLD_SHELF.instantiate(pos, state);
     }
 
     @Override

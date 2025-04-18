@@ -14,7 +14,7 @@ public class OldShelfBlockEntity extends BlockEntity implements GeoBlockEntity {
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 
     public OldShelfBlockEntity(BlockPos pos, BlockState state) {
-        super(BlockEntityRegistry.OLD_SHELF_BLOCK, pos, state);
+        super(BlockEntityRegistry.OLD_SHELF, pos, state);
     }
 
     @Override

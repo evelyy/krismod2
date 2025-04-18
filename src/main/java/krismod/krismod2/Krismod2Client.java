@@ -13,9 +13,13 @@ public class Krismod2Client implements ClientModInitializer {
     }
 
     private static void registerRenderers() {
-        BlockEntityRendererFactories.register(BlockEntityRegistry.OLD_SHELF_BLOCK,
+        BlockEntityRendererFactories.register(BlockEntityRegistry.OLD_SHELF,
                 context -> new OldShelfBlockRenderer());
-        BlockEntityRendererFactories.register(BlockEntityRegistry.MYKI_READER_BLOCK,
+        BlockEntityRendererFactories.register(BlockEntityRegistry.MYKI_READER,
                 context -> new MykiReaderBlockRenderer());
+        BlockEntityRendererFactories.register(BlockEntityRegistry.CURTAINS_TEST,
+                context -> new CurtainsBlockRenderer());
+        BlockEntityRendererFactories.register(BlockEntityRegistry.VERT_WOOD_PLANKS,
+                context -> new VertPlankBlockRenderer());
     }
 }

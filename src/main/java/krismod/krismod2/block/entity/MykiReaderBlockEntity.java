@@ -19,7 +19,7 @@ public class MykiReaderBlockEntity extends BlockEntity implements GeoBlockEntity
     protected static final RawAnimation MYKI_READER_ANIMS = RawAnimation.begin().thenPlay("myki.open").thenPlay("myki.idle").thenPlay("myki.close");
 
     public MykiReaderBlockEntity(BlockPos pos, BlockState state) {
-        super(BlockEntityRegistry.MYKI_READER_BLOCK, pos, state);
+        super(BlockEntityRegistry.MYKI_READER, pos, state);
     }
 
     @Override
