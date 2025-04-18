@@ -16,10 +16,6 @@ public final class BlockEntityRegistry {
             Krismod2.MOD_ID + ":oldshelf",
             FabricBlockEntityTypeBuilder.create(OldShelfBlockEntity::new, BlockRegistry.OLD_SHELF).build(null));
 
-    public static final BlockEntityType<TestBlockEntity> TEST_BLOCK = Registry.register(Registries.BLOCK_ENTITY_TYPE,
-            Krismod2.MOD_ID + ":testblock",
-            FabricBlockEntityTypeBuilder.create(TestBlockEntity::new, BlockRegistry.TEST_BLOCK).build(null));
-
     public static final BlockEntityType<CurtainsBlockEntity> CURTAINS_TEST = Registry.register(Registries.BLOCK_ENTITY_TYPE,
             Krismod2.MOD_ID + ":curtains_test",
             FabricBlockEntityTypeBuilder.create(CurtainsBlockEntity::new, BlockRegistry.CURTAINS_TEST).build(null));
@@ -27,5 +23,4 @@ public final class BlockEntityRegistry {
     public static final BlockEntityType<VertPlankBlockEntity> VERT_WOOD_PLANKS = Registry.register(Registries.BLOCK_ENTITY_TYPE,
             Krismod2.MOD_ID + ":vert-wood-planks",
             FabricBlockEntityTypeBuilder.create(VertPlankBlockEntity::new, BlockRegistry.VERT_WOOD_PLANKS).build(null));
-
 }

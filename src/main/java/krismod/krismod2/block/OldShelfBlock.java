@@ -1,6 +1,7 @@
 package krismod.krismod2.block;
 
 import krismod.krismod2.Krismod2;
+import krismod.krismod2.Krismod2Client;
 import krismod.krismod2.registry.BlockEntityRegistry;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
@@ -10,29 +11,22 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
 public class OldShelfBlock extends FacingBlock implements BlockEntityProvider {
-    public OldShelfBlock() { super(AbstractBlock.Settings.create().nonOpaque());}
 
-    @Nullable
+    public OldShelfBlock() { super(Settings.create().nonOpaque().strength(4.0f)); }
+
     @Override
-    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+    public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return BlockEntityRegistry.OLD_SHELF.instantiate(pos, state);
     }
 
     @Override
     public BlockRenderType getRenderType(BlockState state) { return BlockRenderType.ENTITYBLOCK_ANIMATED; }
-
-    @Override
-    public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return VoxelShapes.cuboid(-1, 0, -1, 1, 3, 1);
-    }
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) { builder.add(FACING); }
 
@@ -43,9 +37,7 @@ public class OldShelfBlock extends FacingBlock implements BlockEntityProvider {
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, BlockView blockGetter, List<Text> tooltip, TooltipContext tooltopFlag) {
-        tooltip.add(Text.translatable("block." + Krismod2.MOD_ID + ".oldshelf.tooltip"));
-
-        super.appendTooltip(stack, blockGetter, tooltip, tooltopFlag);
+    public void appendTooltip(ItemStack stack, BlockView blockGetter, List<Text> tooltip, TooltipContext tooltipFalg) {
+        tooltip.add(Text.translatable("block." + Krismod2.MOD_ID + ".old_shelf.tooltip"));
     }
 }

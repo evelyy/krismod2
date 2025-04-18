@@ -12,7 +12,6 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
-import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
@@ -26,43 +25,42 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-
 public class MykiReaderBlock extends FacingBlock implements BlockEntityProvider {
-    public static final BooleanProperty OPEN = Properties.OPEN;
+
     public MykiReaderBlock() {
-        super(AbstractBlock.Settings.create().nonOpaque());
-        setDefaultState(getDefaultState().with(OPEN, false));
+        super(Settings.create().nonOpaque().strength(4.0f));
+        setDefaultState(getDefaultState().with(Properties.OPEN, false));
     }
 
-    @Nullable
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return BlockEntityRegistry.MYKI_READER.instantiate(pos, state);
+
     }
 
     @Override
     public BlockRenderType getRenderType(BlockState state) { return BlockRenderType.ENTITYBLOCK_ANIMATED; }
 
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) { builder.add(FACING, OPEN); }
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) { builder.add(FACING).add(Properties.OPEN); }
 
-    @Nullable
     @Override
+    @Nullable
     public BlockState getPlacementState(ItemPlacementContext context) {
         return getDefaultState().with(FACING, context.getPlayerLookDirection().getOpposite());
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, BlockView blockGetter, List<Text> tooltip, TooltipContext tooltopFlag) {
-        tooltip.add(Text.translatable("block." + Krismod2.MOD_ID + ".mykireader.tooltip"));
-
-        super.appendTooltip(stack, blockGetter, tooltip, tooltopFlag);
+    public void appendTooltip(ItemStack stack, BlockView blockGetter, List<Text> tooltip, TooltipContext tooltipFlag) {
+        tooltip.add(Text.translatable("block." + Krismod2.MOD_ID + ".myki_reader.tooltip"));
     }
 
+    // anim and state on right click
+    // need to implement myki card
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (!state.get(Properties.OPEN)) {
+        if (!state.get(Properties.OPEN)){
             world.playSound(player, pos, SoundEvents.BLOCK_ANVIL_BREAK , SoundCategory.BLOCKS, 1.0f, 1.0f);
-            world.setBlockState(pos, state.with(OPEN, true));
+            world.setBlockState(pos, state.with(Properties.OPEN, true));
             world.scheduleBlockTick(pos, this, 60);
         }
         return ActionResult.SUCCESS;
@@ -70,7 +68,7 @@ public class MykiReaderBlock extends FacingBlock implements BlockEntityProvider 
 
     @Override
     public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        world.setBlockState(pos, state.with(OPEN, false));
+        Krismod2.LOGGER.info("closing myki!");
+        world.setBlockState(pos, state.with(Properties.OPEN, false));
     }
-
 }
