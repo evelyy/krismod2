@@ -7,11 +7,23 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 
-public class BlockEntityRegistry {
-    public static final BlockEntityType<OldShelfBlockEntity> OLD_SHELF_BLOCK = Registry.register(Registries.BLOCK_ENTITY_TYPE,
-            Krismod2.MOD_ID + ":old_shelf",
-            FabricBlockEntityTypeBuilder.create(OldShelfBlockEntity::new, BlockRegistry.OLD_SHELF_BLOCK).build(null));
-    public static final BlockEntityType<MykiReaderBlockEntity> MYKI_READER_BLOCK = Registry.register(Registries.BLOCK_ENTITY_TYPE,
-            Krismod2.MOD_ID + ":myki_reader",
-            FabricBlockEntityTypeBuilder.create(MykiReaderBlockEntity::new, BlockRegistry.MYKI_READER_BLOCK).build(null));
+public final class BlockEntityRegistry {
+    public static final BlockEntityType<MykiReaderBlockEntity> MYKI_READER = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+            Krismod2.MOD_ID + ":mykireader",
+            FabricBlockEntityTypeBuilder.create(MykiReaderBlockEntity::new, BlockRegistry.MYKI_READER).build(null));
+
+    public static final BlockEntityType<OldShelfBlockEntity> OLD_SHELF = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+            Krismod2.MOD_ID + ":oldshelf",
+            FabricBlockEntityTypeBuilder.create(OldShelfBlockEntity::new, BlockRegistry.OLD_SHELF).build(null));
+
+    public static final BlockEntityType<TestBlockEntity> TEST_BLOCK = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+            Krismod2.MOD_ID + ":testblock",
+            FabricBlockEntityTypeBuilder.create(TestBlockEntity::new, BlockRegistry.TEST_BLOCK).build(null));
+    public static final BlockEntityType<CurtainsBlockEntity> CURTAINS_TEST = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+            Krismod2.MOD_ID + ":curtains_test",
+            FabricBlockEntityTypeBuilder.create(CurtainsBlockEntity::new, BlockRegistry.CURTAINS_TEST).build(null));
+
+    public static final BlockEntityType<VertPlankBlockEntity> VERT_WOOD_PLANKS = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+            Krismod2.MOD_ID + ":vert-wood-planks",
+            FabricBlockEntityTypeBuilder.create(VertPlankBlockEntity::new, BlockRegistry.VERT_WOOD_PLANKS).build(null));
 }

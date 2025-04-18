@@ -1,8 +1,6 @@
 package krismod.krismod2.registry;
 
 import krismod.krismod2.Krismod2;
-import krismod.krismod2.block.OldShelfBlock;
-import krismod.krismod2.item.*;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -12,21 +10,28 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import software.bernie.geckolib.GeckoLib;
 
 public class ItemRegistry {
-    public static final OldShelfItem OLD_SHELF_ITEM = registerItem("old_shelf", new OldShelfItem(BlockRegistry.OLD_SHELF_BLOCK, new Item.Settings()));
-    public static final MykiReaderItem MYKI_READER_ITEM = registerItem("myki_reader", new MykiReaderItem(BlockRegistry.MYKI_READER_BLOCK, new Item.Settings()));
+    public static final BlockItem MYKI_READER = registerItem("myki_reader", new BlockItem(BlockRegistry.MYKI_READER, new Item.Settings()));
+    public static final BlockItem OLD_SHELF = registerItem("old_shelf", new BlockItem(BlockRegistry.OLD_SHELF, new Item.Settings()));
+    public static final BlockItem TEST_BLOCK = registerItem("test_block", new BlockItem(BlockRegistry.TEST_BLOCK, new Item.Settings()));
+    public static final BlockItem CURTAINS_ITEM = registerItem("curtains_test", new BlockItem(BlockRegistry.CURTAINS_TEST, new Item.Settings()));
+    public static final BlockItem VERT_WOOD_PLANKS = registerItem("vert-wood-planks", new BlockItem(BlockRegistry.VERT_WOOD_PLANKS, new Item.Settings()));
 
-    public static final ItemGroup ITEM_GROUP = Registry.register(Registries.ITEM_GROUP, new Identifier(Krismod2.MOD_ID, "krismod"), FabricItemGroup
+    public static final ItemGroup ITEM_GROUP = Registry.register(Registries.ITEM_GROUP, new Identifier(Krismod2.MOD_ID, "test"), FabricItemGroup
             .builder()
-            .displayName(Text.translatable("itemGroup.krismod2.krismod"))
-            .icon(() -> new ItemStack(ItemRegistry.OLD_SHELF_ITEM))
+            .displayName(Text.translatable("itemGroup.krismod2.test"))
+            .icon(() -> new ItemStack(ItemRegistry.MYKI_READER))
             .entries((enabledFeatures, entries) -> {
-                entries.add(ItemRegistry.OLD_SHELF_ITEM);
-                entries.add(ItemRegistry.MYKI_READER_ITEM);
+                entries.add(ItemRegistry.MYKI_READER);
+                entries.add(ItemRegistry.OLD_SHELF);
+                entries.add(ItemRegistry.TEST_BLOCK);
+                entries.add(ItemRegistry.CURTAINS_ITEM);
+                entries.add(ItemRegistry.VERT_WOOD_PLANKS);
             }).build());
 
-    private static <I extends Item> I registerItem(String name, I item) {
+    public static <I extends Item> I registerItem(String name, I item) {
         return Registry.register(Registries.ITEM, new Identifier(Krismod2.MOD_ID, name), item);
     }
 }
