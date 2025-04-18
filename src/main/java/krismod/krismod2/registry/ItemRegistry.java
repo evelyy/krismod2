@@ -16,6 +16,9 @@ public class ItemRegistry {
     public static final BlockItem MYKI_READER = registerItem("myki_reader", new BlockItem(BlockRegistry.MYKI_READER, new Item.Settings()));
     public static final BlockItem OLD_SHELF = registerItem("old_shelf", new BlockItem(BlockRegistry.OLD_SHELF, new Item.Settings()));
     public static final BlockItem TEST_BLOCK = registerItem("test_block", new BlockItem(BlockRegistry.TEST_BLOCK, new Item.Settings()));
+    public static final BlockItem CURTAINS_ITEM = registerItem("curtains_test", new BlockItem(BlockRegistry.CURTAINS_TEST, new Item.Settings()));
+    public static final BlockItem VERT_WOOD_PLANKS = registerItem("vert-wood-planks", new BlockItem(BlockRegistry.VERT_WOOD_PLANKS, new Item.Settings()));
+
     public static final ItemGroup ITEM_GROUP = Registry.register(Registries.ITEM_GROUP, new Identifier(Krismod2.MOD_ID, "test"), FabricItemGroup
             .builder()
             .displayName(Text.translatable("itemGroup.krismod2.test"))
@@ -24,6 +27,8 @@ public class ItemRegistry {
                 entries.add(ItemRegistry.MYKI_READER);
                 entries.add(ItemRegistry.OLD_SHELF);
                 entries.add(ItemRegistry.TEST_BLOCK);
+                entries.add(ItemRegistry.CURTAINS_ITEM);
+                entries.add(ItemRegistry.VERT_WOOD_PLANKS);
             }).build());
 
     public static <I extends Item> I registerItem(String name, I item) {

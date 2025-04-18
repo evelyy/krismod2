@@ -1,12 +1,11 @@
 package krismod.krismod2.client;
 
-import krismod.krismod2.client.renderer.MykiReaderRenderer;
-import krismod.krismod2.client.renderer.OldShelfRenderer;
-import krismod.krismod2.client.renderer.TestBlockRenderer;
+import krismod.krismod2.client.renderer.*;
 import krismod.krismod2.registry.BlockEntityRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.impl.client.rendering.BlockEntityRendererRegistryImpl;
+import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 
 public class Krismod2Client implements ClientModInitializer {
 
@@ -22,5 +21,10 @@ public class Krismod2Client implements ClientModInitializer {
                 context -> new OldShelfRenderer());
         BlockEntityRendererRegistryImpl.register(BlockEntityRegistry.TEST_BLOCK,
                 context -> new TestBlockRenderer());
+        BlockEntityRendererRegistryImpl.register(BlockEntityRegistry.CURTAINS_TEST,
+                context -> new CurtainsBlockRenderer());
+        BlockEntityRendererRegistryImpl.register(BlockEntityRegistry.VERT_WOOD_PLANKS,
+                context -> new VertPlankBlockRenderer());
+
     }
 }
